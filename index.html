@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+
+        <div id="container">
+            <div id="main">
+                <h1>Generate a</h1>
+                <h1><span>random password</span>
+</h1>
+                <p class="info">Never use an insecure password again.</p>
+
+                <label for="length">Length of password: 
+                    <input type="number" id="length" min="8" max="20">
+                </label>
+
+                <label for="uppercase">Include uppercase letters: 
+                    <input type="checkbox" id="uppercase">
+                </label>
+                
+
+                <label for="symbols">Include symbols: 
+                    <input type="checkbox" id="symbols">
+                </label>
+                
+                <label for="numbers">Include numbers: 
+                    <input type="checkbox" id="numbers">
+                </label>
+                
+                <label for="lowercase">Include lowercase letters: 
+                    <input type="checkbox" id="lowercase">
+                </label>
+
+                <button onclick="generatePassword()">Generate passwords</button>
+                <div id="footer">
+                    <button class="result" onclick="copyPassword()"><p class="password"></p></button>
+                    <button class="result" onclick="copyPassword()"><p class="password1"></p></button>
+                </div>
+            </div>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>
