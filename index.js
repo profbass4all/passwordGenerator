@@ -17,7 +17,7 @@ let arr = [num, lower, symbols, upper]
 let arr2 = [numbers, lowercase, specialCharacters, uppercase]
 
 let password = ''
-
+let password2 = ''
 function generatePassword(){
     password = ''
     if(!num.checked && !upper.checked && !lower.checked && !symbols.checked){
@@ -28,7 +28,15 @@ function generatePassword(){
     }
     
     else{
-        for (let i = 0; i < arr.length; i++){
+        passwordMachine(password)
+        passwordMachine(password);
+    }
+    passwordEl.textContent = password
+    passwordEl1.textContent = password
+}
+
+function passwordMachine(password){
+    for (let i = 0; i < arr.length; i++){
 
             if(arr[i].checked && password.length < len.value){
                 let rand = Math.floor(Math.random() * arr2[i].length);
@@ -40,28 +48,41 @@ function generatePassword(){
             }
         
         }
-    }
-    passwordEl.textContent = password
-    passwordEl1.textContent = password
 }
+async function copyPassword(password){
 
-
-
-async function copyPassword(){
-    let passwordEl = document.querySelector('.password').innerHTML
+    if(password == 'password1'){
+        let passwordEl = document.querySelector('.password1').innerHTML
 
     try {
         if(!passwordEl) throw new Error ('Nothing found')
         await navigator.clipboard.writeText(passwordEl);
 
         console.log('Content copied to clipboard');
-        alert("Copied the text: " + password);
+        alert("Copied the text: " + passwordEl);
 
     } catch (err) {
 
         console.error('Failed to copy: ', err);
 
     }
+    }else if (password == 'password2'){
+        let passwordEl = document.querySelector('.password2').innerHTML
+
+    try {
+        if(!passwordEl) throw new Error ('Nothing found')
+        await navigator.clipboard.writeText(passwordEl);
+
+        console.log('Content copied to clipboard');
+        alert("Copied the text: " + passwordEl);
+
+    } catch (err) {
+
+        console.error('Failed to copy: ', err);
+
+    }
+    }
+    
 
     
 }
