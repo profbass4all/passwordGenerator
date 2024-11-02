@@ -24,7 +24,7 @@ function generatePassword(){
         alert("At least one of the following options should be selected: numbers, uppercase, lowercase, and symbols.")
         return
     }else if(len.value < 8 || len.value > 15){
-        alert("Invalid length of password")
+        alert("length of password must be between 8 and 15")
     }
     
     else{
