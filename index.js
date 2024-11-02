@@ -9,17 +9,18 @@ let num = document.getElementById('numbers')
 let upper = document.getElementById('uppercase')
 let symbols = document.getElementById('symbols')
 let lower = document.getElementById('lowercase')
-let passwordEl = document.querySelector('.password')
 let passwordEl1 = document.querySelector('.password1')
+let passwordEl2 = document.querySelector('.password2')
 
 
 let arr = [num, lower, symbols, upper]
 let arr2 = [numbers, lowercase, specialCharacters, uppercase]
 
-let password = ''
+let password1= ''
 let password2 = ''
 function generatePassword(){
-    password = ''
+    password1 = ''
+    password2 = ''
     if(!num.checked && !upper.checked && !lower.checked && !symbols.checked){
         alert("At least one of the following options should be selected: numbers, uppercase, lowercase, and symbols.")
         return
@@ -28,11 +29,10 @@ function generatePassword(){
     }
     
     else{
-        passwordMachine(password)
-        passwordMachine(password);
+        passwordEl1.textContent = passwordMachine(password1)
+        passwordEl2.textContent = passwordMachine(password2);
     }
-    passwordEl.textContent = password
-    passwordEl1.textContent = password
+    
 }
 
 function passwordMachine(password){
@@ -42,12 +42,15 @@ function passwordMachine(password){
                 let rand = Math.floor(Math.random() * arr2[i].length);
 
                 password += arr2[i][rand];
+
             }
             if( i == arr.length - 1 && password.length < len.value){
                 i = -1
             }
         
         }
+                console.log('password',password);
+        return password;
 }
 async function copyPassword(password){
 
